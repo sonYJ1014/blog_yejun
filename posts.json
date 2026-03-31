@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "Welcome to My Mind",
+    "desc": "이 블로그의 첫 번째 글입니다. 마크다운으로 작성되었으며, 프레임워크 없이 프리미엄 디자인을 구현했습니다.",
+    "date": "2026-03-31",
+    "tag": "Life"
+  },
+  {
+    "slug": "why-vanilla-css",
+    "title": "왜 Vanilla CSS인가?",
+    "desc": "Tailwind 스타일 방식에서 벗어나, 순수 CSS가 제공하는 강력한 제어권과 예술적 자유도에 대해 고찰해 봅니다.",
+    "date": "2026-03-30",
+    "tag": "Tech"
+  }
+]
