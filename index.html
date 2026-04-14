@@ -1,56 +1,140 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<html class="light" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A beautifully designed modern personal blog.">
-    <title>My Premium Blog</title>
-    <!-- Modern Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Main Style -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Marked.js for Markdown Parsing -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- DOMPurify for Security -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.3/purify.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Radiant Editorial | My Premium Blog</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "primary": "#855300",
+                    "primary-container": "#ffb951",
+                    "on-primary": "#ffffff",
+                    "secondary": "#705b40",
+                    "secondary-container": "#fbdebc",
+                    "tertiary": "#51643f",
+                    "background": "#fbf9f5",
+                    "surface": "#fbf9f5",
+                    "on-surface": "#1f1b16",
+                    "on-surface-variant": "#4d4639",
+                    "outline": "#7e7667",
+                    "surface-container-low": "#f6f3ed",
+                    "surface-container": "#f1ede7",
+                    "surface-container-high": "#ebe7e1",
+                    "surface-container-highest": "#e5e1db"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.75rem",
+                    "xl": "1rem",
+                    "2xl": "1.5rem",
+                    "3xl": "2rem",
+                    "full": "9999px"
+                },
+                "fontFamily": {
+                    "headline": ["Epilogue"],
+                    "body": ["Epilogue"],
+                    "label": ["Plus Jakarta Sans"]
+                }
+            },
+        },
+    }
+</script>
+
+<!-- Main Styles -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Marked.js for Markdown Parsing -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- DOMPurify for Security -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.3/purify.min.js"></script>
 </head>
-<body>
-    <!-- Background Elements for Aesthetics -->
-    <div class="bg-shape shape-1"></div>
-    <div class="bg-shape shape-2"></div>
-    <div class="bg-shape shape-3"></div>
 
-    <div class="app-wrapper">
-        <header class="glass-header">
-            <div class="header-inner">
-                <a href="#" class="logo">
-                    <span class="logo-icon">✨</span>
-                    <span class="logo-text">DevBlog</span>
-                </a>
-                <nav class="nav-links">
-                    <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </button>
-                </nav>
-            </div>
-        </header>
+<body class="bg-[#fbf9f5] text-on-surface font-body min-h-screen selection:bg-primary-container/30 selection:text-primary overflow-x-hidden flex flex-col">
 
-        <main id="main-content" class="container">
-            <!-- Content will be injected here by app.js -->
-            <div class="loader">
-                <div class="spinner"></div>
-            </div>
-        </main>
+<!-- Ambient Glow Background Elements -->
+<div class="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
+    <div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[#f59e0b]/10 rounded-full blur-[120px] animate-pulse animate-shape-1"></div>
+    <div class="absolute top-[40%] -right-[10%] w-[40%] h-[60%] bg-[#855300]/5 rounded-full blur-[100px] animate-shape-2"></div>
+    <div class="absolute -bottom-[10%] left-[20%] w-[60%] h-[40%] bg-[#fbdebc]/10 rounded-full blur-[120px] animate-shape-3"></div>
+</div>
 
-        <footer>
-            <p>&copy; 2026 My Premium Blog. Built with elegance.</p>
-        </footer>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f5]/80 backdrop-blur-xl shadow-sm shadow-amber-900/5 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+        <a href="#" class="flex items-center gap-3">
+            <span class="text-3xl font-black italic text-[#855300] tracking-tighter font-headline">Radiant</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 font-label">
+            <a class="text-[#855300] font-bold tracking-tight text-sm transition-opacity hover:opacity-80" href="#">Discover</a>
+            <a class="text-[#4d4639] font-bold tracking-tight text-sm transition-opacity hover:opacity-80" href="#">Read</a>
+            <a class="text-[#4d4639] font-bold tracking-tight text-sm transition-opacity hover:opacity-80" href="#">Curated</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-amber-100 transition-colors active:scale-95 duration-200">
+                <span class="material-symbols-outlined text-[#855300]">light_mode</span>
+            </button>
+        </div>
     </div>
+    <div class="bg-gradient-to-b from-[#e5e1db] to-transparent h-px"></div>
+</header>
 
-    <!-- Main Logic -->
-    <script src="app.js"></script>
+<!-- Main Container where app.js dynamic content renders -->
+<main id="main-content" class="relative pt-32 pb-32 px-6 flex-1 w-full max-w-7xl mx-auto">
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+</main>
+
+<!-- Bottom Navigation for Mobile -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end pb-8 px-4 bg-[#fbf9f5]/70 backdrop-blur-2xl shadow-[0_-8px_30px_rgb(0,0,0,0.04)] rounded-t-[32px] md:hidden font-label">
+    <a class="flex flex-col items-center justify-center bg-gradient-to-br from-[#f59e0b] to-[#855300] text-white rounded-full p-4 mb-1 shadow-lg shadow-amber-500/30 active:scale-90 duration-300 ease-out" href="#">
+        <span class="material-symbols-outlined">explore</span>
+        <span class="font-medium text-[10px] mt-0.5">Discover</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#4d4639] p-4 hover:text-[#855300] active:scale-90 duration-300 ease-out" href="#">
+        <span class="material-symbols-outlined">auto_awesome</span>
+        <span class="font-medium text-[10px] mt-0.5">Curated</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#4d4639] p-4 hover:text-[#855300] active:scale-90 duration-300 ease-out" href="#">
+        <span class="material-symbols-outlined">auto_stories</span>
+        <span class="font-medium text-[10px] mt-0.5">Library</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#4d4639] p-4 hover:text-[#855300] active:scale-90 duration-300 ease-out" href="#">
+        <span class="material-symbols-outlined">person</span>
+        <span class="font-medium text-[10px] mt-0.5">Profile</span>
+    </a>
+</nav>
+
+<!-- Footer -->
+<footer class="w-full pt-20 pb-40 bg-[#ebe7e1] flex flex-col items-center gap-8 px-8 text-center mt-auto">
+    <div class="font-headline font-bold text-2xl text-[#855300] italic tracking-tight">Radiant Organic</div>
+    <div class="flex flex-wrap justify-center gap-8 font-label text-sm tracking-wide">
+        <a class="text-[#4d4639] opacity-70 hover:opacity-100 hover:underline decoration-[#f59e0b] decoration-2 underline-offset-4 transition-all duration-300" href="#">Journal</a>
+        <a class="text-[#4d4639] opacity-70 hover:opacity-100 hover:underline decoration-[#f59e0b] decoration-2 underline-offset-4 transition-all duration-300" href="#">Archives</a>
+        <a class="text-[#4d4639] opacity-70 hover:opacity-100 hover:underline decoration-[#f59e0b] decoration-2 underline-offset-4 transition-all duration-300" href="#">Ethics</a>
+        <a class="text-[#4d4639] opacity-70 hover:opacity-100 hover:underline decoration-[#f59e0b] decoration-2 underline-offset-4 transition-all duration-300" href="#">Privacy</a>
+    </div>
+    <div class="flex gap-6 mt-2">
+        <span class="material-symbols-outlined text-[#855300] hover:scale-110 cursor-pointer transition-transform">public</span>
+        <span class="material-symbols-outlined text-[#855300] hover:scale-110 cursor-pointer transition-transform">mail</span>
+        <span class="material-symbols-outlined text-[#855300] hover:scale-110 cursor-pointer transition-transform">rss_feed</span>
+    </div>
+    <div class="text-[#4d4639] opacity-50 font-label text-xs mt-4">© 2026 Radiant Organic. Crafted in the Golden Hour.</div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
